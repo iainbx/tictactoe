@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\dev\\xp\\tictactoe\\TicTacToeLib\\TicTacToeLib.csproj": {}
+    "C:\\dev\\xp\\tictactoe\\tictactoelib\\TicTacToeLib.csproj": {}
   },
   "projects": {
-    "C:\\dev\\xp\\tictactoe\\TicTacToeLib\\TicTacToeLib.csproj": {
+    "C:\\dev\\xp\\tictactoe\\tictactoelib\\TicTacToeLib.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\dev\\xp\\tictactoe\\TicTacToeLib\\TicTacToeLib.csproj",
+        "projectUniqueName": "C:\\dev\\xp\\tictactoe\\tictactoelib\\TicTacToeLib.csproj",
         "projectName": "TicTacToeLib",
-        "projectPath": "C:\\dev\\xp\\tictactoe\\TicTacToeLib\\TicTacToeLib.csproj",
+        "projectPath": "C:\\dev\\xp\\tictactoe\\tictactoelib\\TicTacToeLib.csproj",
         "packagesPath": "C:\\Users\\iainb\\.nuget\\packages\\",
-        "outputPath": "C:\\dev\\xp\\tictactoe\\TicTacToeLib\\obj\\",
+        "outputPath": "C:\\dev\\xp\\tictactoe\\tictactoelib\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

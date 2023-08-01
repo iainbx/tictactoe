@@ -4,40 +4,76 @@ public class Game
 {
     public Game()
     {
-        Board = new char[3, 3];
         Start();
     }
 
-    public char[,] Board { get; set; }
-    public char Player { get; set; }
-    public char Winner { get; set; }
+    public readonly char[,] Board = new char[3, 3] { { ' ', ' ', ' ' }, { ' ', ' ', ' ' }, { ' ', ' ', ' ' } };
+    public char CurrentPlayer { get; set; }
+    public string? Result { get; set; }
+
+    public short RemainingMoves = 9;
+
+    public enum GameStatus { GameInProgress, GameOver };
+    public GameStatus Status { get; set; }
 
     public void Start()
     {
-        Board = new char[3, 3] { { ' ', ' ', ' ' }, { ' ', ' ', ' ' }, { ' ', ' ', ' ' } };
-        Player = 'X';
-        Winner = ' ';
+        ClearBoard();
+        CurrentPlayer = 'X';
+        Result = "unknown";
+        Status = GameStatus.GameInProgress;
     }
 
-    public void MakeMove(int x, int y)
+    /// <summary>
+    /// Clear moves from board
+    /// </summary>
+    private void ClearBoard()
     {
+        for (int x = 0; x < Board.GetLength(0); x++) {
+            for (int y = 0; y < Board.GetLength(1); y++) {
+                Board[x, y] = ' ';
+            }
+        }
+        RemainingMoves = 9;
+    }
+
+    /// <summary>
+    /// Make a move in the game
+    /// </summary>
+    /// <param name="x"></param>
+    /// <param name="y"></param>
+    /// <exception cref="ArgumentException"></exception>
+    public void Move(int x, int y)
+    {
+        if (RemainingMoves == 0)
+        {
+            throw new ArgumentException("There are no moves left");
+        }
         if (x > 2 || y > 2)
         {
-            throw new ArgumentException("argument should be less than 3");
+            throw new ArgumentException("Argument should be less than 3");
         }
         else if (Board[x, y] != ' ')
         {
-            throw new ArgumentException("cell is not empty, try again");
+            throw new ArgumentException("Square is not empty, try again");
         }
-        Board[x, y] = Player;
 
-        // check for win or draw
+        Board[x, y] = CurrentPlayer;
+        RemainingMoves = --RemainingMoves;
 
-        Player = Player == 'X' ? 'O' : 'X';
+        UpdateStatus();
+
+        if (Status == GameStatus.GameInProgress)
+        {
+            CurrentPlayer = CurrentPlayer == 'X' ? 'O' : 'X';
+        }
 
     }
 
-    public bool IsGameOver()
+    /// <summary>
+    /// Update game status and set result if game over
+    /// </summary>
+    public void UpdateStatus()
     {
         // check vertical win
         for (int x = 0; x < 3; x++)
@@ -46,8 +82,9 @@ public class Game
             {
                 if (Board[x, 0] != ' ')
                 {
-                    Winner = Board[x, 0];
-                    return true;
+                    Status = GameStatus.GameOver;
+                    Result = $"Winner {Board[x, 0]}";
+                    return;
                 }
             }
         }
@@ -59,8 +96,9 @@ public class Game
             {
                 if (Board[0, y] != ' ')
                 {
-                    Winner = Board[0, y];
-                    return true;
+                    Status = GameStatus.GameOver;
+                    Result = $"Winner {Board[0, y]}";
+                    return;
                 }
             }
         }
@@ -70,37 +108,30 @@ public class Game
         {
             if (Board[0, 0] != ' ')
             {
-                Winner = Board[0, 0];
-                return true;
+                Status = GameStatus.GameOver;
+                Result = $"Winner {Board[0, 0]}";
+                return;
             }
         }
         if (Board[2, 0] == Board[1, 1] && Board[2, 0] == Board[0, 2])
         {
             if (Board[2, 0] != ' ')
             {
-                Winner = Board[2, 0];
-                return true;
+                Status = GameStatus.GameOver;
+                Result = $"Winner {Board[2, 0]}";
+                return;
             }
         }
 
         // check remaining moves
-        short remainingMoves = 0;
-        for (int x = 0; x < 3; x++)
+        if (RemainingMoves == 0)
         {
-            for (int y = 0; y < 3; y++)
-            {
-                if (Board[x, y] == ' ')
-                {
-                    remainingMoves++;
-                }
-            }
-        }
-        if (remainingMoves == 0) {
-            return true;
+            // draw
+            Status = GameStatus.GameOver;
+            Result = $"Draw";
+            return;
         }
 
-
-        return false;
     }
 
 }

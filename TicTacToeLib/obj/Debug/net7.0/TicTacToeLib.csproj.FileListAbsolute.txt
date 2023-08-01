@@ -1,0 +1,12 @@
+C:\dev\xp\tictactoe\tictactoelib\bin\Debug\net7.0\TicTacToeLib.deps.json
+C:\dev\xp\tictactoe\tictactoelib\bin\Debug\net7.0\TicTacToeLib.dll
+C:\dev\xp\tictactoe\tictactoelib\bin\Debug\net7.0\TicTacToeLib.pdb
+C:\dev\xp\tictactoe\tictactoelib\obj\Debug\net7.0\TicTacToeLib.csproj.AssemblyReference.cache
+C:\dev\xp\tictactoe\tictactoelib\obj\Debug\net7.0\TicTacToeLib.GeneratedMSBuildEditorConfig.editorconfig
+C:\dev\xp\tictactoe\tictactoelib\obj\Debug\net7.0\TicTacToeLib.AssemblyInfoInputs.cache
+C:\dev\xp\tictactoe\tictactoelib\obj\Debug\net7.0\TicTacToeLib.AssemblyInfo.cs
+C:\dev\xp\tictactoe\tictactoelib\obj\Debug\net7.0\TicTacToeLib.csproj.CoreCompileInputs.cache
+C:\dev\xp\tictactoe\tictactoelib\obj\Debug\net7.0\TicTacToeLib.dll
+C:\dev\xp\tictactoe\tictactoelib\obj\Debug\net7.0\refint\TicTacToeLib.dll
+C:\dev\xp\tictactoe\tictactoelib\obj\Debug\net7.0\TicTacToeLib.pdb
+C:\dev\xp\tictactoe\tictactoelib\obj\Debug\net7.0\ref\TicTacToeLib.dll
